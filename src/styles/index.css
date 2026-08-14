@@ -1,0 +1,357 @@
+@import "tailwindcss";
+
+:root {
+  --color-navy: #0b1f3a;
+  --color-navy-dark: #061426;
+  --color-royal: #2563eb;
+  --color-royal-dark: #1d4ed8;
+  --color-gold: #d4af37;
+  --color-gold-light: #f5d76e;
+  --color-surface: #f8fafc;
+  --color-text: #1e293b;
+  --color-muted: #64748b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-gray-800 font-sans;
+  margin: 0;
+  padding: 0;
+  background: var(--color-surface);
+}
+
+button {
+  @apply transition duration-300 ease-in-out rounded-lg;
+}
+
+button:hover {
+  @apply opacity-90;
+}
+
+/* ================================
+   ANIMATIONS
+================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+  }
+}
+
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3), 0 0 40px rgba(212, 175, 55, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.6), 0 0 60px rgba(212, 175, 55, 0.3);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.8s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out;
+}
+
+.animate-float {
+  animation: floatAnimation 3s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* Scroll animations with stagger */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* Glassmorphism utility classes */
+@layer utilities {
+  .glass {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg;
+  }
+
+  .glass-dark {
+    @apply bg-[#0B1F3A]/20 backdrop-blur-xl border border-white/10 shadow-lg;
+  }
+
+  .glass-hover {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg transition-all duration-300 hover:bg-white/15 hover:border-[#D4AF37]/40;
+  }
+  
+  .glow-effect {
+    @apply shadow-lg shadow-blue-500/30;
+  }
+  
+  .glow-effect-gold {
+    @apply shadow-lg shadow-yellow-500/30;
+  }
+}
+
+/* ================================
+   HERO
+================================ */
+
+section#inicio {
+  @apply min-h-screen flex items-center justify-center bg-cover bg-center relative;
+}
+
+section#inicio::before {
+  content: "";
+  @apply absolute inset-0;
+  background: rgba(6, 20, 38, 0.65);
+}
+
+section#inicio .text-center {
+  @apply relative z-10 text-white;
+}
+
+/* Smooth transitions for hero buttons */
+.hero-btn {
+  @apply inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl;
+}
+
+/* ================================
+   CARD HOVER EFFECTS
+================================ */
+
+.card-hover {
+  @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+}
+
+.card-glow {
+  @apply transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.2)];
+}
+
+.card-premium {
+  @apply bg-gradient-to-br from-white/50 to-white/30 backdrop-blur-2xl border border-white/40 shadow-xl rounded-3xl transition-all duration-300 hover:shadow-2xl hover:border-[#D4AF37]/40 hover:-translate-y-1;
+}
+
+/* ================================
+   RESPECTS PREFERS-REDUCED-MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* ================================
+   ABOUT
+================================ */
+
+section#about {
+  @apply py-16 text-center;
+  background: var(--color-surface);
+}
+
+section#about h2 {
+  @apply text-3xl font-bold mb-6;
+  color: var(--color-navy);
+}
+
+section#about p {
+  @apply max-w-3xl mx-auto;
+  color: var(--color-muted);
+}
+
+/* ================================
+   EVENTS
+================================ */
+
+section#events {
+  @apply py-16 bg-white;
+}
+
+section#events h2 {
+  @apply text-3xl font-bold text-center mb-12;
+  color: var(--color-navy);
+}
+
+section#events .event-card {
+  @apply p-6 rounded-xl transition shadow-sm hover:shadow-lg;
+  background: white;
+  border: 1px solid #e2e8f0;
+}
+
+section#events .event-card h3 {
+  @apply text-xl font-semibold mb-2;
+  color: var(--color-navy);
+}
+
+section#events .event-card p {
+  @apply mb-2;
+  color: var(--color-muted);
+}
+
+/* ================================
+   CONTACT
+================================ */
+
+section#contact {
+  @apply py-16 text-center;
+  background: var(--color-surface);
+}
+
+section#contact h2 {
+  @apply text-3xl font-bold mb-6;
+  color: var(--color-navy);
+}
+
+section#contact form {
+  @apply max-w-2xl mx-auto flex flex-col gap-4;
+}
+
+section#contact input,
+section#contact textarea {
+  @apply p-3 rounded-lg border focus:outline-none;
+  border-color: #cbd5e1;
+}
+
+section#contact input:focus,
+section#contact textarea:focus {
+  border-color: var(--color-royal);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+section#contact button {
+  @apply text-white px-6 py-3 font-semibold;
+  background: var(--color-royal);
+}
+
+section#contact button:hover {
+  background: var(--color-royal-dark);
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+  @apply py-6 text-white;
+  background: var(--color-navy-dark);
+}
+
+footer a {
+  color: var(--color-gold);
+}
+
+footer a:hover {
+  color: var(--color-gold-light);
+}

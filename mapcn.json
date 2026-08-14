@@ -1,0 +1,17 @@
+{
+  "$schema": "https://mapcn-rn.dev/schema/mapcn.json",
+  "schemaVersion": 2,
+  "renderer": "maplibre",
+  "provider": {
+    "id": "maptiler",
+    "envKey": "EXPO_PUBLIC_MAPTILER_API_KEY"
+  },
+  "styling": "none",
+  "aliases": {
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks",
+    "components": "@/components"
+  },
+  "components": {}
+}
