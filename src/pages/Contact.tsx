@@ -32,8 +32,8 @@ export default function Contact() {
     {
       icon: Mail,
       title: 'Correo electrónico',
-      info: 'contacto@iglesia.com',
-      link: 'mailto:contacto@iglesia.com',
+      info: 'casadeldiosaltisimoiglesianuev@gmail.com',
+      link: 'mailto:casadeldiosaltisimoiglesianuev@gmail.com',
     },
     {
       icon: MapPin,

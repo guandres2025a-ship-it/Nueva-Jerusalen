@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { CalendarDays, Sparkles } from 'lucide-react';
 
 export default function Countdown() {
-  const eventDate = new Date('2026-08-20T19:00:00');
+  const eventDate = new Date('2027-08-20T19:00:00');
 
   const calculateTimeLeft = () => {
     const now = new Date();
@@ -94,7 +94,7 @@ export default function Countdown() {
 
           <div className="inline-flex items-center gap-2.5 countdown-label text-xs md:text-sm text-white/80 uppercase border border-[#D4AF37]/30 rounded-full px-5 py-2.5">
             <CalendarDays className="w-4 h-4 text-[#F5D76E]" aria-hidden="true" />
-            20 de agosto de 2026 · 7:00 PM
+            20 de agosto de 2027 · 7:00 PM
           </div>
         </div>
 
